@@ -43,7 +43,7 @@ const Nav = ({ toggleSidebar }) => {
         <span className="num">8</span>
       </a>
       <a href="#" className="profile">
-        <img src="/Logo/logo-favicon.png" alt="Profile" />
+        <img src="/test_web_bot/Logo/logo-favicon.png" alt="Profile" />
       </a>
     </nav>
   );

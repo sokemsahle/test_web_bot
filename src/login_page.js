@@ -22,7 +22,7 @@ const LoginPage = ({ handleLogin, News, Notice }) => {
       <div className="login-left">
         <div className="login-box">
           <div className="logo-section">
-            <img src="/Logo/logo-light-transparent.png" alt="SOKAPP" className="main-logo" />
+            <img src="/test_web_bot/Logo/logo-light-transparent.png" alt="SOKAPP" className="main-logo" />
           </div>
 
           <form className="login-form" onSubmit={onSubmit}>
