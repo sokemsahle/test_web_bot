@@ -1,0 +1,53 @@
+.df-field {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.df-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.df-required {
+  color: red;
+  margin-left: 2px;
+}
+
+.df-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.df-input-error {
+  border-color: red;
+}
+
+.df-error {
+  color: red;
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.df-choice-group {
+  margin-top: 4px;
+}
+
+.df-choice-inline {
+  display: flex;
+  gap: 15px;
+}
+
+.df-choice-block label {
+  display: block;
+}
+
+.df-image-preview {
+  margin-top: 10px;
+  max-width: 200px;
+}
+

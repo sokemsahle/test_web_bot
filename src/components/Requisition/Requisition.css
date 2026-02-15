@@ -1,0 +1,348 @@
+/* --- Requisition Page Layout --- */
+.requisition-container {
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--light-primary);
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Header */
+.requisition-container .header {
+    margin-bottom: 2rem;
+}
+
+.requisition-container .header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.requisition-container .breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+.requisition-container .breadcrumb .active {
+    color: var(--success);
+    font-weight: 500;
+}
+
+/* Form Card */
+.form-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Input Grids */
+.form-header-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.input-group input,
+.input-group select {
+    padding: 0.75rem;
+    border: 1px solid var(--grey);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--dark);
+    outline: none;
+    background: var(--light);
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--primary);
+    background: var(--white);
+}
+
+/* Items Table */
+.items-table-container {
+    margin-bottom: 2rem;
+}
+
+.items-table-container h3 {
+    margin-bottom: 1rem;
+    color: var(--dark);
+    font-size: 1.2rem;
+}
+
+.requisition-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.requisition-table th {
+    text-align: left;
+    padding: 1rem;
+    background: var(--light-primary);
+    color: var(--primary);
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.requisition-table td {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--light);
+}
+
+.requisition-table input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--light);
+    border-radius: 4px;
+}
+
+.requisition-table input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.readonly-input {
+    background-color: var(--light);
+    color: var(--dark-gray);
+    border: none !important;
+    font-weight: 600;
+}
+
+/* Buttons */
+.btn-delete {
+    background: transparent;
+    border: none;
+    color: var(--danger);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.2s;
+}
+
+.btn-delete:hover {
+    color: #d32f2f;
+}
+
+.table-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.btn-add {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 2px dashed var(--primary);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-add:hover {
+    background: var(--light-primary);
+}
+
+.grand-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.grand-total .amount {
+    color: var(--success);
+    font-size: 1.5rem;
+}
+
+/* Approvals Section */
+.approvals-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--grey);
+}
+
+.approvals-section h3 {
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.approval-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.approval-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.approval-box label {
+    font-size: 0.85rem;
+    color: var(--dark-gray);
+    font-weight: 600;
+}
+
+.approval-box input {
+    border: none;
+    border-bottom: 2px solid var(--grey);
+    padding: 0.5rem 0;
+    background: transparent;
+    color: var(--dark);
+}
+
+/* Footer Actions */
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.btn-secondary {
+    padding: 0.8rem 2rem;
+    border: 1px solid var(--grey);
+    background: var(--white);
+    color: var(--dark-gray);
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-primary {
+    padding: 0.8rem 2rem;
+    background: var(--success); /* Using success color for main action */
+    color: var(--white);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #6a1b9a; /* Slightly darker shade of success */
+}
+
+
+/* --- Signature Pad Styles --- */
+
+.signature-box {
+    min-height: 120px; /* Ensure space for signature */
+}
+
+.signature-pad-container {
+    border: 2px dashed var(--grey);
+    border-radius: 8px;
+    background: #fff;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sigCanvas {
+    width: 100%;
+    height: 150px;
+    background-color: #fff;
+    border-radius: 8px 8px 0 0;
+    cursor: crosshair;
+}
+
+/* Controls inside the signature area */
+.sig-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: var(--light);
+    border-top: 1px solid var(--grey);
+    border-radius: 0 0 8px 8px;
+}
+
+.btn-sig-clear {
+    background: transparent;
+    border: 1px solid var(--danger);
+    color: var(--danger);
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.btn-sig-save {
+    background: var(--success);
+    border: none;
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* Trigger Button */
+.btn-sign-trigger {
+    padding: 1rem;
+    border: 1px dashed var(--primary);
+    background: var(--light-primary);
+    color: var(--primary);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-sign-trigger:hover {
+    background: #e1bee7; /* lighter primary shade */
+}
+
+/* Preview Image */
+.signature-preview {
+    position: relative;
+    border-bottom: 2px solid var(--grey);
+}
+
+.signature-preview img {
+    max-width: 100%;
+    max-height: 80px;
+    display: block;
+}
+
+.btn-sig-reset {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 0.7rem;
+    background: var(--light);
+    border: 1px solid var(--grey);
+    padding: 2px 5px;
+    cursor: pointer;
+    color: var(--dark-gray);
+}

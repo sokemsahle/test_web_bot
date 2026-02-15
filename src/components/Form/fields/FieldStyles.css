@@ -1,0 +1,122 @@
+/* Field styles – uses design tokens from Form.css :root */
+:root {
+  --white: #ffffff;
+  --primary: #474fa8;
+  --light-primary: #d6d8ff;
+  --light: #f1e7ff;
+  --dark: #1c2237;
+  --danger: #ff4b5c;
+  --light-danger: #f8d7db;
+  --success: #831dba;
+  --light-success: #f2e7ff;
+  --warning: #ffc107;
+  --grey: #acacac;
+  --dark-gray: #aaaaaa;
+  --teal: #008080;
+  --font-family: 'Poppins', sans-serif;
+}
+
+
+.fb-field {
+  margin-bottom: 16px;
+  font-family: var(--font-family, 'Poppins', sans-serif);
+}
+
+.fb-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--dark);
+}
+
+.fb-field input:not([type="checkbox"]):not([type="radio"]),
+.fb-field select,
+.fb-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--grey);
+  background-color: var(--white);
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--dark);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.fb-field input:hover,
+.fb-field select:hover,
+.fb-field textarea:hover {
+  border-color: var(--dark-gray);
+}
+
+.fb-field input:focus,
+.fb-field select:focus,
+.fb-field textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--light-primary);
+}
+
+.fb-field input[disabled],
+.fb-field select[disabled],
+.fb-field textarea[disabled] {
+  background: rgba(172, 172, 172, 0.15);
+  cursor: not-allowed;
+}
+
+.fb-field-file input[type="file"] {
+  padding: 8px;
+  font-size: 13px;
+  background: var(--light);
+  border: 1px dashed var(--grey);
+}
+
+.fb-field-checkbox label,
+.fb-field-radio label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 4px 0;
+  color: var(--dark);
+}
+
+.fb-field-checkbox input[type="checkbox"],
+.fb-field-radio input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.fb-required {
+  color: var(--danger);
+  margin-left: 3px;
+}
+
+.fb-help {
+  display: block;
+  margin-top: 6px;
+  color: var(--dark-gray);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.fb-field-divider hr {
+  border: none;
+  border-top: 1px solid var(--grey);
+  margin: 20px 0;
+}
+
+.fb-field-heading h1,
+.fb-field-heading h2,
+.fb-field-heading h3,
+.fb-field-heading h4,
+.fb-field-heading h5,
+.fb-field-heading h6 {
+  margin: 8px 0;
+  color: var(--dark);
+}

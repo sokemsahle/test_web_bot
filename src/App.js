@@ -1,71 +1,79 @@
-import React, { useRef, useEffect } from 'react';
-import SignatureCanvas from 'react-signature-canvas';
-
-const tg = window.Telegram?.WebApp;
+import React, { useState } from 'react';
+import Sidebar from './components/Sidebar';
+import Nav from './components/Nav';
+import Dashboard from './components/Dashboard';
+import LoginPage from './login_page'; 
+import Inventory from './components/inventory';
+import Report from './components/Report';
+import Record_Managment from './components/Record_Managment';
+import UserControle from './components/usercontrole';
+import Settings from './components/Settings';
+import Form from './components/Form/Form';
+import Requisition from './components/Requisition/Requisition';
+import './index.css';
 
 function App() {
-  const sigCanvas = useRef(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [activeItem, setActiveItem] = useState('Dashboard');
+  const [News, setNews] = useState('There is no News at the moment.');
+  const [Notice, setNotice] = useState('There is no Notice at the moment.');
 
-  useEffect(() => {
-    if (tg) {
-      tg.ready();
-      tg.expand();
-    }
-  }, []);
 
-  const clear = () => sigCanvas.current.clear();
 
-  const submit = () => {
-    if (sigCanvas.current.isEmpty()) {
-      tg?.showAlert("Please provide a signature!");
-      return;
-    }
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
 
-    // Get signature as Base64 string
-    const dataURL = sigCanvas.current.getTrimmedCanvas().toDataURL('image/png');
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.body.classList.toggle('dark');
+  };
 
-    // Send data back to the bot
-    if (tg) {
-      tg.sendData(JSON.stringify({
-        source: 'signature_app',
-        image: dataURL
-      }));
-    } else {
-      console.log("Base64 Image:", dataURL);
-      alert("App is not running inside Telegram.");
-    }
+  const handleLogout = () => {
+    // Handle logout logic here
+    setIsLoggedIn(false);
+    console.log('Logout clicked');
+  };
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
   };
 
   return (
-    <div style={styles.container}>
-      <h3 style={styles.title}>Draw Your Signature</h3>
-      
-      <div style={styles.canvasHolder}>
-        <SignatureCanvas 
-          ref={sigCanvas}
-          penColor="black"
-          canvasProps={{ width: 300, height: 200, className: 'sigCanvas' }}
-        />
-      </div>
+    <div className="App">
+      {!isLoggedIn ?(
+        <LoginPage handleLogin={handleLogin} News={News} Notice={Notice}/>
+      )  : (
+        <>
+          <Sidebar 
+            sidebarOpen={sidebarOpen} 
+            darkMode={darkMode}
+            toggleDarkMode={toggleDarkMode}
+            handleLogout={handleLogout}
+            activeItem={activeItem}
+            setActiveItem={setActiveItem}
+            
+          />
+          <div className={`content ${sidebarOpen ? '' : 'sidebar-close'}`}>
+            <Nav toggleSidebar={toggleSidebar} />
+            
+            {activeItem === 'Dashboard' && <Dashboard />}
+            {activeItem === 'Report' && <Report Reportopen={true} />}
+            {activeItem === 'Inventory' && <Inventory Inventoryopen={true} />}
+            {activeItem === 'Record Management' && <Record_Managment RecordManopen={true} />}
+            {activeItem === 'User Access Control' && <UserControle UserControlopen={true} />}
+            {activeItem === 'User Access Control' && <UserControle UserControleopen={true} />}
+            {activeItem === 'Requisition' && <Requisition isOpen={true} />}
+            {activeItem === 'Settings' && <Settings settinopen={true} setNews={setNews} setNotice={setNotice} />}
+            {activeItem === 'Design Form' && <Form Formopen={true} />}
 
-      <div style={styles.btnRow}>
-        <button onClick={clear} style={styles.btnClear}>Clear</button>
-        <button onClick={submit} style={styles.btnSubmit}>Submit</button>
-      </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
-
-const styles = {
-  container: { 
-    display: 'flex', flexDirection: 'column', alignItems: 'center', 
-    padding: '20px', height: '100vh', backgroundColor: '#f9f9f9' 
-  },
-  title: { marginBottom: '15px', color: '#333' },
-  canvasHolder: { border: '2px solid #000', borderRadius: '8px', background: '#fff' },
-  btnRow: { marginTop: '20px', display: 'flex', gap: '10px' },
-  btnSubmit: { padding: '10px 20px', backgroundColor: '#0088cc', color: '#fff', border: 'none', borderRadius: '5px' },
-  btnClear: { padding: '10px 20px', backgroundColor: '#ccc', border: 'none', borderRadius: '5px' }
-};
 
 export default App;
