@@ -15,9 +15,9 @@ const Sidebar = ({ sidebarOpen, darkMode, toggleDarkMode, handleLogout, activeIt
   return (
     <div className={`sidebar ${sidebarOpen ? '' : 'close'}`}>
       <a href="/" className="logo">
-        <img src={`${process.env.PUBLIC_URL}/Logo/logo-favicon.png`} alt="Logo" />
+        <img src="/test_web_bot/Logo/logo-favicon.png" alt="Logo" />
         <span>
-          <img src={`${process.env.PUBLIC_URL}/Logo/logo-1-primary.png`} alt="SOKAPP" />
+          <img src="/test_web_bot/Logo/logo-1-primary.png" alt="SOKAPP" />
         </span>
       </a>
       

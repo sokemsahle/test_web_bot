@@ -2,7 +2,7 @@
   "name": "sokapp-react",
   "version": "1.0.0",
   "description": "SOKAPP admin dashboard - React version",
-  "homepage": "https://sokemsahle.github.io/test_web_bot",
+  "homepage": "https://sokemsahle.github.io/test_web_bot/",
   "private": true,
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
