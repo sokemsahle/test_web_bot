@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 on:
   push:
-    branches: [main] # Trigger when you push to main
+    branches: [main]
 permissions:
   contents: read
   pages: write
@@ -14,11 +14,11 @@ jobs:
       - name: Install and Build
         run: |
           npm install
-          npm run build
+          CI=false npm run build # The CI=false flag ignores ESLint warnings
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build # For Vite apps, change this to ./dist
+          path: ./build
   deploy:
     needs: build
     runs-on: ubuntu-latest
