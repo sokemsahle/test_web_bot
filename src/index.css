@@ -163,7 +163,7 @@ body{
 
 
 .sidebar.close .side-menu li a .bx {
-    margin: 20px;
+    /*margin: 20px;*/
     min-width: calc(80px -20px);
     display: flex;
     justify-content: center;
